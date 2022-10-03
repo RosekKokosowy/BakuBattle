@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>BakuBattle</title>
+        <link rel="stylesheet" th:href="@{/styles/style.css}" />
+        <link rel="stylesheet" th:href="@{/styles/style_team_select.css}" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <script th:inline="javascript">
+            window.onload = () =>{
+                const playersSize = [[${#lists.size(players)}]];
+                const players = [[${players}]];
+                clear();
+                fill(playersSize, players);
+            };
+            function clear(){
+                try{
+                    for(let i=1;i<=4;i++){
+                        document.getElementById("player"+i+"_forms_nickname").value = "";
+                        document.getElementById("player"+i+"_forms_team").value = "";
+                    }
+                }catch (err){
+                    alert("Error: "+err);
+                }
+            }
+            function fill(size, players){
+                for(let i=0;i<size;i++){
+                    selected("player"+(i+1)+"_forms","player"+(i+1)+"_forms_nickname","player"+(i+1)+"_forms_team","player"+(i+1)+"_forms_confirm", players[i].name, players[i].teams_name);
+                }
+            }
+            function selected(frameId,nickId,teamId,conId,name,teams){
+                const frame = document.getElementById(frameId);
+                const nick = document.getElementById(nickId);
+                const team = document.getElementById(teamId);
+                const con = document.getElementById(conId);
+                try{
+                    frame.style.borderColor = "#6FCF97";
+                    frame.style.borderWidth = "3px";
+                    nick.value = name;
+                    nick.disabled = true;
+                    team.value = teams;
+                    team.disabled = true;
+                    con.value="SELECTED";
+                    con.style.color = "#6FCF97";
+                    con.disabled = true;
+                }catch (err){
+                    alert("Error: "+err);
+                }
+            }
+        </script>
+
+        <video autoplay muted loop id="myVideo">
+            <source th:src="@{/mp4/alb_smokfx1021_1080p_24fps.mp4}" type="video/mp4">
+        </video>
+
+        <div class="container-fluid">
+            <div class="row col-12 d-flex justify-content-center align-content-center my-5 py-5">
+                <header data-text="&nbsp;BAKUBATTLE&nbsp;">&nbsp;BAKUBATTLE&nbsp;</header>
+            </div>
+
+            <div class="row col-12 d-flex justify-content-between align-content-center flex-row mb-4 mx-1">
+                <div id="player1_forms" class="forms-background col-3 p-4 d-flex justify-content-center align-content-center flex-column">
+                    <h3 class="text-white mb-2">PLAYER</h3>
+                    <form method="POST" th:object="${player}">
+                        <div class="field my-2">
+                            <span></span>
+                            <input id="player1_forms_nickname" type="text" required placeholder="nickname" th:field="*{name}"/>
+                        </div>
+                        <div class="field my-2">
+                            <span></span>
+                            <input id="player1_forms_team" type="text" required placeholder="team" th:field="*{teams_name}"/>
+                        </div>
+                        <div class="field my-3">
+                            <input id="player1_forms_confirm" type="submit" value="SELECT">
+                        </div>
+                    </form>
+                </div>
+
+                <img class="logo" th:src="@{/photos/logo.png}" alt="logo bakugan"/>
+
+                <div id="player2_forms" class="forms-background col-3 p-4 d-flex justify-content-center align-content-center flex-column">
+                    <h3 class="text-white mb-2">PLAYER</h3>
+                    <form method="POST" th:object="${player}">
+                        <div class="field my-2">
+                            <span></span>
+                            <input id="player2_forms_nickname" type="text" required placeholder="nickname" th:field="*{name}"/>
+                        </div>
+                        <div class="field my-2">
+                            <span></span>
+                            <input id="player2_forms_team" type="text" required placeholder="team" th:field="*{teams_name}"/>
+                        </div>
+                        <div class="field my-3">
+                            <input id="player2_forms_confirm" type="submit" value="SELECT">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row col-12 d-flex justify-content-sm-around align-content-center flex-row mt-5">
+                <div id="player3_forms" class="forms-background col-3 p-4 d-flex justify-content-center align-content-center flex-column">
+                    <h3 class="text-white mb-2">PLAYER</h3>
+                    <form method="POST" th:object="${player}">
+                        <div class="field my-2">
+                            <span></span>
+                            <input id="player3_forms_nickname" type="text" required placeholder="nickname" th:field="*{name}"/>
+                        </div>
+                        <div class="field my-2">
+                            <span></span>
+                            <input id="player3_forms_team" type="text" required placeholder="team" th:field="*{teams_name}"/>
+                        </div>
+                        <div class="field my-3">
+                            <input id="player3_forms_confirm" type="submit" value="SELECT">
+                        </div>
+                    </form>
+                </div>
+
+                <div id="player4_forms" class="forms-background col-3 p-4 d-flex justify-content-center align-content-center flex-column">
+                    <h3 class="text-white mb-2">PLAYER</h3>
+                    <form method="POST" th:object="${player}">
+                        <div class="field my-2">
+                            <span></span>
+                            <input id="player4_forms_nickname" type="text" required placeholder="nickname" th:field="*{name}"/>
+                        </div>
+                        <div class="field my-2">
+                            <span></span>
+                            <input id="player4_forms_team" type="text" required placeholder="team" th:field="*{teams_name}"/>
+                        </div>
+                        <div class="field my-3">
+                            <input id="player4_forms_confirm" type="submit" value="SELECT">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BakuBattle</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="gameplay.js"></script>
+</head>
+<body>
+<video autoplay muted loop id="myVideo">
+    <source src="Arena_vid.mp4" type="video/mp4">
+</video>
+<div class="container-fluid">
+
+    <div class="row d-flex justify-content-between align-items-center">
+
+        <div class="player1-container col-2">
+            <img id="player1-photo" alt="player1-photo" style="width:100%;"/>
+            <div>
+                <span class="rangeValue_hp player1_hp" id="player1-hp-value">0</span>
+                <input class="range_hp player1_hp-bar" id="player1-hp-bar" type="range" value="0" min="0" max="5000">
+                <label id="player1-hp-bar-changes" for="player1-hp-bar" class="labels ml-5 pl-5" style="top:35%;left:160%;">+500</label>
+            </div>
+
+            <div>
+                <span class="rangeValue_xp player1_xp" id="player1-xp-value">0</span>
+                <input class="range_xp player1_xp-bar" id="player1-xp-bar" type="range" value="0" min="0" max="100">
+                <label id="player1-xp-bar-changes" for="player1-xp-bar" class="labels ml-5 pl-5" style="top:48%;left:140%;">+0.2</label>
+            </div>
+
+            <label for="player1-photo" class="nick ml-5 pl-5" id="player1-nick" style="top:20%;left:55%;">ROSEK</label>
+
+        </div>
+
+        <div class="player2-container col-2">
+            <img id="player2-photo" alt="player2-photo" style="width:100%;"/>
+            <div>
+                <span class="rangeValue_hp player2_hp" id="player2-hp-value">0</span>
+                <input class="range_hp player2_hp-bar" id="player2-hp-bar" type="range" value="0" min="0" max="5000">
+                <label id="player2-hp-bar-changes" for="player2-hp-bar" class="labels ml-5 pl-5" style="top:35%;right:192%;">+500</label>
+            </div>
+
+            <div>
+                <span class="rangeValue_xp player2_xp" id="player2-xp-value">0</span>
+                <input class="range_xp player2_xp-bar" id="player2-xp-bar" type="range" value="0" min="0" max="100">
+                <label id="player2-xp-bar-changes" for="player2-xp-bar" class="labels ml-5 pl-5" style="top:48%;right:175%;">+0.2</label>
+            </div>
+
+            <label for="player2-photo" class="nick" id="player2-nick" style="top:20%;right:85%;">ROSEK</label>
+
+        </div>
+
+    </div>
+
+    <div class="row d-flex justify-content-center align-items-center">
+        <div id="card1" class="card p-1 mx-5 d-flex justify-content-center align-items-center" style="background: #000;" onclick="playerMoveAct(this.id)">
+            <div class="card-inner">
+                <div class="card-front d-flex justify-content-center align-items-center flex-column">
+                    <label id="who-goes1" for="card1-img-back" style="font-size: 1.4rem;color: #f3f9f9;">Rosek</label>
+                    <img id="card1-img-back" src="aquos.jpg" width="70%">
+                </div>
+                <div class="card-back d-flex justify-content-center align-items-center flex-column">
+                    <img id="card1-img" style="width:70%">
+                    <label for="card1-img" id="card1-name" class="name-skill mt-2">Rozszczepienie</label>
+                    <label for="card1-img" id="card1-type" class="text-warning type-skill"> attack-area</label>
+                    <label for="card1-img" id="card1-desc" class="desc-skill">This skill gives you 400g and takes 400g from the opponent</label>
+                </div>
+            </div>
+        </div>
+        <div id="card2" class="card p-1 mx-5 d-flex justify-content-center align-items-center flex-column" style="background: #000;" onclick="playerMoveAct(this.id)">
+            <div class="card-inner">
+                <div class="card-front d-flex justify-content-center align-items-center flex-column">
+                    <label id="who-goes2" for="card2-img-back" style="font-size: 1.4rem;color: #f3f9f9;">Rosek</label>
+                    <img id="card2-img-back" src="aquos.jpg" width="70%">
+                </div>
+                <div class="card-back d-flex justify-content-center align-items-center flex-column">
+                    <img id="card2-img" style="width:70%">
+                    <label for="card2-img" id="card2-name" class="name-skill mt-2">Rozszczepienie</label>
+                    <label for="card2-img" id="card2-type" class="text-warning type-skill"> attack-area</label>
+                    <label for="card2-img" id="card2-desc" class="desc-skill">This skill gives you 400g and takes 400g from the opponent</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-between align-items-center">
+
+        <div class="player3-container col-2">
+            <label for="player3-photo" class="nick ml-5 pl-5" id="player3-nick" style="position: absolute;top:20%;left:55%;">ROSEK</label>
+            <img id="player3-photo" alt="player3-photo" style="width:100%;"/>
+
+            <div>
+                <span class="rangeValue_hp player3_hp" id="player3-hp-value">0</span>
+                <input class="range_hp player3_hp-bar" id="player3-hp-bar" type="range" value="0" min="0" max="5000">
+                <label id="player3-hp-bar-changes" for="player3-hp-bar" class="labels ml-5 pl-5" style="top:36%;left:160%;">+500</label>
+            </div>
+
+            <div>
+                <span class="rangeValue_xp player3_xp" id="player3-xp-value">0</span>
+                <input class="range_xp player3_xp-bar" id="player3-xp-bar" type="range" value="0" min="0" max="100">
+                <label id="player3-xp-bar-changes" for="player3-xp-bar" class="labels ml-5 pl-5" style="top:49%;left:140%;">+0.2</label>
+            </div>
+        </div>
+
+        <div class="player4-container col-2">
+            <label for="player4-photo" class="nick ml-5 pl-5" id="player4-nick" style="position: absolute;top:20%;right:85%;">ROSEK</label>
+            <img id="player4-photo"  alt="player4-photo" style="width:100%;"/>
+
+            <div>
+                <span class="rangeValue_hp player4_hp" id="player4-hp-value">0</span>
+                <input class="range_hp player4_hp-bar" id="player4-hp-bar" type="range" value="0" min="0" max="5000">
+                <label id="player4-hp-bar-changes" for="player4-hp-bar" class="labels ml-5 pl-5" style="top:36%;right:192%;">+500</label>
+            </div>
+
+            <div>
+                <span class="rangeValue_xp player4_xp" id="player4-xp-value">0</span>
+                <input class="range_xp player4_xp-bar" id="player4-xp-bar" type="range" value="0" min="0" max="100">
+                <label id="player4-xp-bar-changes" for="player4-xp-bar" class="labels ml-5 pl-5" style="top:49%;right:175%;">+0.2</label>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

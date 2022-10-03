@@ -1,0 +1,99 @@
+img{
+    width: 100%;
+}
+
+.description-aquos{
+    margin-left:auto;
+    margin-right:auto;
+    /*width:60%;*/
+    height:14vw;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 4vw 0 rgba(17,106,171,0.77);
+    border: 1px solid rgba(13,49,169,0.85);
+}
+
+.description-darkus{
+    margin-left:auto;
+    margin-right:auto;
+    /*width:60%;*/
+    height:14vw;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 4vw 0 rgba(91, 14, 222, 0.77);
+    border: 1px solid rgba(70, 58, 173, 0.85);
+}
+
+.description-haos{
+    margin-left:auto;
+    margin-right:auto;
+    /*width:60%;*/
+    height:14vw;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 4vw 0 rgba(222, 205, 14, 0.77);
+    border: 1px solid rgb(150, 143, 4);
+}
+
+.description-pyrus{
+    margin-left:auto;
+    margin-right:auto;
+    /*width:60%;*/
+    height:14vw;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 4vw 0 rgba(217, 0, 30, 0.77);
+    border: 1px solid rgb(168, 0, 0);
+}
+
+.description-subterra{
+    margin-left:auto;
+    margin-right:auto;
+    /*width:60%;*/
+    height:14vw;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 4vw 0 rgba(178, 123, 4, 0.77);
+    border: 1px solid rgba(110, 81, 6, 0.82);
+}
+
+.description-ventus{
+    margin-left:auto;
+    margin-right:auto;
+    /*width:60%;*/
+    height:14vw;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 4vw 0 rgba(6, 161, 43, 0.93);
+    border: 1px solid rgba(14, 107, 30, 0.82);
+}
+
+.size-of-car-items{
+    width: 1920px;
+    height: 1080px;
+}
+
+button{
+    width:10vw;
+    height: 2vw;
+    border-radius: 30%;
+}
+
+.p-modified{
+    font-size:4rem;
+    color: rgb(255,244,0);
+}
+
+form input{
+    display: none;
+}
+
+form button{
+    display: none;
+}

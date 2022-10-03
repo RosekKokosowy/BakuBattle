@@ -1,0 +1,26 @@
+.top-space{
+    margin-top: 200px;
+}
+
+.description{
+    border-radius: 10px;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+    height:180px;
+    backdrop-filter: blur(3px);
+}
+
+.p-modified{
+    font-size: 1.6rem;
+}
+
+img{
+    margin-left: 32.5vw;
+    opacity: 0.75;
+}
+
+img:hover{
+    opacity: 0.9;
+}
